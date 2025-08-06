@@ -34,7 +34,7 @@ export default function NameCard(props: NameCardProps) {
 
   const getCharacterImage = (group: string) => {
     const groupNumber = group.replace('조', ''); // '1조' -> '1'
-    return `/images/character/character${groupNumber}.png`;
+    return `./images/character/character${groupNumber}.png`;
   };
 
   const getMbtiColor = (mbti: MBTI) => {
@@ -57,7 +57,7 @@ export default function NameCard(props: NameCardProps) {
     <div
       className="name-card"
       style={{
-        backgroundImage: 'url(/images/background/background.png)',
+        backgroundImage: 'url(./images/background/background.png)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
