@@ -37,6 +37,11 @@ export default function NameCard(props: NameCardProps) {
     return `./images/character/character${groupNumber}.png`;
   };
 
+  const getGroupName = (group: string) => {
+    const groupNumber = group.replace('조', ''); // '1조' -> '1'
+    return `${groupNumber}조`;
+  };
+
   const getMbtiColor = (mbti: MBTI) => {
     const prefix = mbti.substring(0, 2);
     switch (prefix) {
@@ -68,7 +73,7 @@ export default function NameCard(props: NameCardProps) {
         <div className="w-full h-full flex flex-col bg-[#EEEEEE]/50 rounded-2xl">
           <div className="w-full h-full flex flex-col justify-center items-center gap-8">
             <div className="w-full flex justify-end mr-12">
-              <p className="text-5xl">{data.group}</p>
+              <p className="text-5xl">{getGroupName(data.group)}</p>
             </div>
             <div className="flex flex-col gap-6 items-center">
               <p className="text-7xl">{data.name}</p>

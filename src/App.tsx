@@ -59,6 +59,11 @@ export default function App() {
       <div className="controls no-print">
         <div className="file-upload-section">
           <h1>쑥고개성당 여름캠프 명찰 생성 웹 어플리케이션</h1>
+
+          <p>
+            name(이름), catname(세례명), group(조), mbti 컬럼이 있는 엑셀 파일을 아래 버튼을 눌러 첨부하고 명찰 생성
+            버튼을 누르세요
+          </p>
           <div className="upload-container">
             <label htmlFor="file-input" className="file-label">
               엑셀 파일 선택
