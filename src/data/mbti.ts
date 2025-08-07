@@ -17,4 +17,5 @@ export const mbtiDescription: Record<MBTI, string> = {
   ESTP: '사업가',
   ESFJ: '집정관',
   ESFP: '예술가',
+  LOVE: '사랑의 실천자',
 };

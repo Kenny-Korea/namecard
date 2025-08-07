@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { mbtiDescription } from './data/mbti';
 
 export type MBTI =
@@ -16,7 +17,8 @@ export type MBTI =
   | 'ESTJ'
   | 'ESTP'
   | 'ESFJ'
-  | 'ESFP';
+  | 'ESFP'
+  | 'LOVE';
 
 interface NameCardData {
   name: string;
@@ -31,15 +33,21 @@ interface NameCardProps {
 
 export default function NameCard(props: NameCardProps) {
   const { data } = props;
+  const [showImage, setShowImage] = useState(true);
 
   const getCharacterImage = (group: string) => {
     const groupNumber = group.replace('조', ''); // '1조' -> '1'
     return `./images/character/character${groupNumber}.png`;
   };
 
+  const handleImageError = () => {
+    setShowImage(false);
+  };
+
   const getGroupName = (group: string) => {
-    const groupNumber = group.replace('조', ''); // '1조' -> '1'
-    return `${groupNumber}조`;
+    return group;
+    // const groupNumber = group.replace('조', ''); // '1조' -> '1'
+    // return `${groupNumber}조`;
   };
 
   const getMbtiColor = (mbti: MBTI) => {
@@ -69,11 +77,20 @@ export default function NameCard(props: NameCardProps) {
       }}
     >
       <div className="relative w-full h-full px-4 py-8">
-        <img src={getCharacterImage(data.group)} alt="character" className="absolute top-0 -right-2 w-20 h-20" />
+        {showImage && (
+          <img
+            src={getCharacterImage(data.group)}
+            alt="character"
+            className="absolute top-0 -right-2 w-20 h-20"
+            onError={handleImageError}
+          />
+        )}
         <div className="w-full h-full flex flex-col bg-[#EEEEEE]/50 rounded-2xl">
           <div className="w-full h-full flex flex-col justify-center items-center gap-8">
             <div className="w-full flex justify-end mr-12">
-              <p className="text-5xl">{getGroupName(data.group)}</p>
+              <p className="text-5xl" style={{ visibility: data.group.trim() ? 'visible' : 'hidden' }}>
+                {getGroupName(data.group)}
+              </p>
             </div>
             <div className="flex flex-col gap-6 items-center">
               <p className="text-7xl">{data.name}</p>

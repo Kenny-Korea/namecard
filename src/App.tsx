@@ -62,8 +62,9 @@ export default function App() {
 
           <p>
             name(이름), catname(세례명), group(조), mbti 컬럼이 있는 엑셀 파일을 아래 버튼을 눌러 첨부하고 명찰 생성
-            버튼을 누르세요
+            버튼을 누르세요.
           </p>
+          <p>아이 쉽다~</p>
           <div className="upload-container">
             <label htmlFor="file-input" className="file-label">
               엑셀 파일 선택
