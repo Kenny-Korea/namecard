@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import * as XLSX from 'xlsx';
 import NameCard, { type MBTI } from './NameCard';
 import './App.css';
+import Gospel from './Gospel';
 
 interface NameCardData {
   name: string;
@@ -85,6 +86,7 @@ export default function App() {
           </button>
         </div>
       </div>
+      <Gospel />
 
       {showNameCards && (
         <div className="name-cards-container">

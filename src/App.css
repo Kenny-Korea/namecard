@@ -3,14 +3,20 @@
 @font-face {
   font-family: 'CookieRun-Bold';
   src: url('/fonts/CookieRun-Bold.woff2') format('woff2');
-  /* src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff') format('woff'); */
   font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NanumMyeongjo';
+  src: url('/fonts/NanumMyeongjoBold.otf') format('opentype');
+  font-weight: bold;
   font-style: normal;
 }
 
 /* 전체 앱 스타일 */
 .app {
-  font-family: 'CookieRun-Bold', Arial, sans-serif;
+  font-family: 'CookieRun-Bold', 'NanumMyeongjo', Arial, sans-serif;
   min-height: 100vh;
   background-color: #f5f5f5;
   padding: 20px;
@@ -140,6 +146,15 @@
   page-break-inside: avoid;
 }
 
+/* 성경 구절 카드 기본 스타일 */
+.gospel-card {
+  font-family: 'NanumMyeongjo', Arial, sans-serif !important;
+}
+
+.gospel-card * {
+  font-family: 'NanumMyeongjo', Arial, sans-serif !important;
+}
+
 /* 인쇄 스타일 */
 @media print {
   @page {
@@ -213,5 +228,37 @@
   /* 첫 번째 명찰은 page-break-before 제거 */
   .name-card:first-child {
     page-break-before: auto;
+  }
+
+  /* Gospel 카드 인쇄 스타일 */
+  .gospel-section {
+    width: 100%;
+  }
+
+  .gospel-page {
+    width: 210mm !important;
+    height: 297mm !important;
+    padding: 5mm !important;
+    box-sizing: border-box !important;
+    display: grid !important;
+    grid-template-rows: repeat(9, 1fr) !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2mm !important;
+    page-break-inside: avoid !important;
+    margin: 0 !important;
+  }
+
+  .gospel-cards-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .gospel-card {
+    width: 100% !important;
+    height: 100% !important;
+    page-break-inside: avoid !important;
+    border: 0.5px solid #ddd !important;
+    font-family: 'NanumMyeongjo', Arial, sans-serif !important;
   }
 }
